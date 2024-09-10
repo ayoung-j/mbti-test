@@ -1,8 +1,8 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import useMbtiStore from "../zustand/mbtiStore";
+import useAuthStore from "../zustand/authStore";
 
 const ProtectedRoute = () => {
-    const { user } = useMbtiStore();
+    const { user } = useAuthStore();
     const { pathName } = useLocation();
 
     if (!user) {

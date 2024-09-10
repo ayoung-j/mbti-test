@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import useMbtiStore from "../zustand/mbtiStore";
+import useAuthStore from "../zustand/authStore";
 
 const Home = () => {
-    const { user } = useMbtiStore();
+    const { user } = useAuthStore();
     const navigate = useNavigate();
 
     const goTest = () => {

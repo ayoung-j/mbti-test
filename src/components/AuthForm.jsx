@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useMbtiStore from "../zustand/mbtiStore";
+import useAuthStore from "../zustand/authStore";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -11,7 +11,7 @@ const INITIAL_STATE = {
 
 const AuthForm = ({ mode, nickname: initialNickname }) => {
     const [formData, setFormData] = useState(INITIAL_STATE);
-    const { signUp, signIn, updateNickname } = useMbtiStore();
+    const { signUp, signIn, updateNickname } = useAuthStore();
     const navigate = useNavigate();
 
     useEffect(() => {

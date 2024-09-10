@@ -1,5 +1,54 @@
 {
-    "testResults": [
-        
-    ]
+  "testResults": [
+    {
+      "id": "2e89",
+      "userId": "0000000",
+      "nickname": "닉네임입니다11",
+      "result": "ESTJ",
+      "answers": [
+        "예",
+        "예",
+        "예"
+      ],
+      "date": "2024-09-10T16:39:43.525Z",
+      "visibility": true
+    },
+    {
+      "id": "b0f9",
+      "userId": "0000000",
+      "nickname": "닉네임입니다2",
+      "result": "ISTJ",
+      "answers": [
+        "아니오",
+        "예",
+        "예"
+      ],
+      "date": "2024-09-10T16:46:07.498Z",
+      "visibility": true
+    },
+    {
+      "id": "325c",
+      "userId": "0000000",
+      "nickname": "닉네임입니다2",
+      "result": "ESTJ",
+      "answers": [
+        "예",
+        "예",
+        "예"
+      ],
+      "date": "2024-09-10T16:59:06.157Z",
+      "visibility": true
+    },
+    {
+      "id": "31ac",
+      "result": "ESTJ",
+      "answers": [
+        "예",
+        "예",
+        "예"
+      ],
+      "date": "2024-09-10T17:06:32.375Z",
+      "visibility": true
+    }
+  ]
 }

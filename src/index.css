@@ -42,6 +42,7 @@
 
 html {
     background-color: #f1f5f9;
+    overflow-y: scroll;
 }
 #root {
     display: flex;

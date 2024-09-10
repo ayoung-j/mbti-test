@@ -1,8 +1,8 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import useMbtiStore from "../zustand/mbtiStore";
+import useAuthStore from "../zustand/authStore";
 
 const Layout = () => {
-    const { signOut, user } = useMbtiStore();
+    const { signOut, user } = useAuthStore();
     const navigate = useNavigate();
 
     const hanbleSignOut = () => {
@@ -32,7 +32,7 @@ const Layout = () => {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to="/result" className="hover:text-sky-500">
+                                                <Link to="/results" className="hover:text-sky-500">
                                                     결과보기
                                                 </Link>
                                             </li>

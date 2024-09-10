@@ -17,14 +17,6 @@ const Routes = () => {
             path: "/",
             element: <Home />,
         },
-        {
-            path: "/test",
-            element: <TestPage />,
-        },
-        {
-            path: "/result",
-            element: <TestResultPage />,
-        },
     ];
 
     // 로그인하지 않은 사용자
@@ -48,6 +40,14 @@ const Routes = () => {
                 {
                     path: "/profile",
                     element: <Profile />,
+                },
+                {
+                    path: "/test",
+                    element: <TestPage />,
+                },
+                {
+                    path: "/results",
+                    element: <TestResultPage />,
                 },
             ],
         },
