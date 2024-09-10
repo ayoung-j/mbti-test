@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Pretendard */
+@font-face {
+    font-family: "Pretendard";
+    src: local(Pretendard-Thin), url("../assets/fonts/Pretendard-Thin.subset.woff2") format("woff2"),
+        url("../assets/fonts/Pretendard-Thin.subset.woff") format("woff");
+    font-weight: 100;
+}
+@font-face {
+    font-family: "Pretendard";
+    src: local(Pretendard-Light), url("../assets/fonts/Pretendard-Light.subset.woff2") format("woff2"),
+        url("../assets/fonts/Pretendard-Light.subset.woff") format("woff");
+    font-weight: 300;
+}
+@font-face {
+    font-family: "Pretendard";
+    src: local(Pretendard-Regular), url("../assets/fonts/Pretendard-Regular.subset.woff2") format("woff2"),
+        url("../assets/fonts/Pretendard-Regular.subset.woff") format("woff");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Pretendard";
+    src: local(Pretendard-Medium), url("../assets/fonts/Pretendard-Medium.subset.woff2") format("woff2"),
+        url("../assets/fonts/Pretendard-Medium.subset.woff") format("woff");
+    font-weight: 500;
+}
+@font-face {
+    font-family: "Pretendard";
+    src: local(Pretendard-SemiBold), url("../assets/fonts/Pretendard-SemiBold.subset.woff2") format("woff2"),
+        url("../assets/fonts/Pretendard-SemiBold.subset.woff") format("woff");
+    font-weight: 600;
+}
+@font-face {
+    font-family: "Pretendard";
+    src: local(Pretendard-Bold), url("../assets/fonts/Pretendard-Bold.subset.woff2") format("woff2"),
+        url("../assets/fonts/Pretendard-Bold.subset.woff") format("woff");
+    font-weight: 700;
+}
+
+html {
+    background-color: #f1f5f9;
+}
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 100%;
+}
+#contents {
+    position: relative;
+    display: flex;
+    flex: 1 0 auto;
+}
