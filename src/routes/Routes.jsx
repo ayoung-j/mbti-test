@@ -1,5 +1,6 @@
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
+import useAuthStore from "../zustand/authStore";
 import Layout from "../components/Layout";
 import Home from "../pages/Home";
 import SignIn from "../pages/SignIn";
@@ -9,7 +10,8 @@ import TestPage from "../pages/TestPage";
 import TestResultPage from "../pages/TestResultPage";
 
 const Routes = () => {
-    const isSignIn = true;
+    const { user } = useAuthStore();
+    const isSignIn = user ? true : false;
 
     // 공용 라우트
     const publicRoutes = [
@@ -65,7 +67,7 @@ const Routes = () => {
             children: [
                 ...publicRoutes,
                 ...(isSignIn ? routesForAuthenticatedOnly : []),
-                ...routesForNotAuthenticatedOnly,
+                ...(!isSignIn ? routesForNotAuthenticatedOnly : []),
                 notFound,
             ],
         },

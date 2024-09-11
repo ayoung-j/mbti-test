@@ -15,7 +15,6 @@ const useAuthStore = create((set) => ({
             try {
                 const userData = await getUser(token);
                 set({ user: userData });
-                console.log(userData);
             } catch (error) {
                 console.error("토큰 검증 실패:", error);
                 localStorage.removeItem("token"); // 토큰이 유효하지 않으면 삭제
@@ -31,6 +30,7 @@ const useAuthStore = create((set) => ({
             set({ user: { userId: data.userId, nickname: data.nickname } });
         } catch (error) {
             console.error("회원가입 오류:", error.response?.data || error.message);
+            throw new Error(error.response?.data.message || error.message);
         }
     },
 
@@ -42,6 +42,7 @@ const useAuthStore = create((set) => ({
             set({ user: { userId: data.userId, password: data.password }, token: data.accessToken });
         } catch (error) {
             console.error("로그인 오류:", error.response?.data || error.message);
+            throw new Error(error.response?.data.message || error.message);
         }
     },
 
@@ -59,6 +60,7 @@ const useAuthStore = create((set) => ({
             set({ userInfo: userData });
         } catch (error) {
             console.error("회원정보 확인 오류: ", error.response?.data || error.message);
+            throw new Error(error.response?.data.message || error.message);
         }
     },
 
@@ -76,6 +78,7 @@ const useAuthStore = create((set) => ({
             }));
         } catch (error) {
             console.error("닉네임 업데이트 오류: ", error.response?.data || error.message);
+            throw new Error(error.response?.data.message || error.message);
         }
     },
 }));

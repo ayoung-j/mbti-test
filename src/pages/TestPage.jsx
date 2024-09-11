@@ -5,24 +5,28 @@ import { createTestResult } from "../api/testResults";
 import useAuthStore from "../zustand/authStore";
 import { mbtiDescriptions } from "../zustand/mbtiStore";
 import TestForm from "../components/TestForm";
+import { useEffect } from "react";
 
 const TestPage = () => {
-    const { user } = useAuthStore();
+    const { userInfo, getUser } = useAuthStore();
     const [result, setResult] = useState(null);
     const description = result ? mbtiDescriptions[result.result] : "MBTI 유형 설명을 찾을 수 없습니다.";
+
+    useEffect(() => {
+        getUser();
+    }, [getUser]);
 
     const handleTestSubmit = async (answers) => {
         const result = calculateMBTI(answers);
         const resultData = {
-            userId: user.id,
-            nickname: user.nickname,
+            userId: userInfo.id,
+            nickname: userInfo.nickname,
             result,
             answers,
             date: new Date().toISOString(),
             visibility: true,
         };
         await createTestResult(resultData);
-
         setResult(resultData);
     };
 

@@ -30,6 +30,7 @@ const useMbtiStore = create((set) => ({
             set({ results: data });
         } catch (error) {
             console.error("결과 리스트 오류:", error.response?.data || error.message);
+            throw new Error(error.response?.data.message || error.message);
         }
     }
 }));

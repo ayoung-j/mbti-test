@@ -31,32 +31,37 @@ const AuthForm = ({ mode, nickname: initialNickname }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (mode === "signUp") {
-            // 회원가입
-            if (!formData.id || !formData.password || !formData.nickname) {
-                alert("아이디, 비밀번호, 닉네임을 모두 입력해 주세요.");
-                return;
-            }
+        try {
+            if (mode === "signUp") {
+                // 회원가입
+                if (!formData.id || !formData.password || !formData.nickname) {
+                    alert("아이디, 비밀번호, 닉네임을 모두 입력해 주세요.");
+                    return;
+                }
 
-            await signUp(formData);
-            alert("회원가입이 완료되었습니다.");
-            navigate("/sign-in");
-        } else if (mode === "profile") {
-            // 닉네임
-            if (!formData.nickname) {
-                alert("닉네임을 입력해 주세요.");
-                return;
+                await signUp(formData);
+
+                alert("회원가입이 완료되었습니다.");
+                navigate("/sign-in");
+            } else if (mode === "profile") {
+                // 닉네임
+                if (!formData.nickname) {
+                    alert("닉네임을 입력해 주세요.");
+                    return;
+                }
+                await updateNickname(formData.nickname);
+                alert("닉네임이 변경되었습니다.");
+            } else {
+                // 로그인
+                if (!formData.id || !formData.password) {
+                    alert("아이디, 비밀번호를 모두 입력해 주세요.");
+                    return;
+                }
+                await signIn(formData);
+                navigate("/");
             }
-            await updateNickname(formData.nickname);
-            alert("닉네임이 변경되었습니다.");
-        } else {
-            // 로그인
-            if (!formData.id || !formData.password) {
-                alert("아이디, 비밀번호를 모두 입력해 주세요.");
-                return;
-            }
-            await signIn(formData);
-            navigate("/");
+        } catch (error) {
+            alert(error);
         }
     };
 
